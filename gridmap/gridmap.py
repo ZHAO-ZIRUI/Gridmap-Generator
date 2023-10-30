@@ -35,7 +35,7 @@ class Gridmap:
         if any(self._name):
             return self._name
         else:
-            return f'Gridmap-{self.width}x{self.height}-{len(self.item_set)}items'
+            return f'Gridmap|{self.width} x {self.height}|{len(self.item_set)}items'
     
     @property
     def item_set(self) -> set:
