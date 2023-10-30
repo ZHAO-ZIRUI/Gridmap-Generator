@@ -1,6 +1,8 @@
 # GridMap-Generator
 
-Generate or composite gridmap from 1-bit BMP format in the manner specified by you and provide visualization during the process.
+The most easy way to generate or composite gridmap from 1-bit BMP format in the manner specified by you and provide visualization during the process.
+
+![](/docs/banner.jpg)
 
 ### Requirements
 
