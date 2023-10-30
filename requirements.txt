@@ -1,0 +1,8 @@
+markdown-it-py==3.0.0
+mdurl==0.1.2
+numpy==1.24.4
+opencv-python==4.8.1.78
+Pillow==10.1.0
+Pygments==2.16.1
+rich==13.6.0
+typing-extensions==4.8.0
