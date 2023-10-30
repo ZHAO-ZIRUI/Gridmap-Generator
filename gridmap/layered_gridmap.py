@@ -38,6 +38,7 @@ class LayeredGridmap(Gridmap):
         result = set()
         for layer in self.layers:
             result.update(layer.item_set())
+        return result
     
     def add_layer(self, gridmap: Gridmap):
         # check gridmap size
