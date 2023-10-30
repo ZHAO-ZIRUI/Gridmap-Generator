@@ -6,10 +6,10 @@ from .gridmap import Gridmap
 class LayeredGridmap(Gridmap):
         
     def __init__(self, width: int, height: int, name='') -> None:
-        super().__init__(width, height, name)
         self._layered_data = []
         self._overlay_mode = self.OverlayMode.KEEP_HIGH_VALUE
         self._overlay_mode_kargs = {}
+        super().__init__(width, height, name)
         
     class OverlayMode:
         
