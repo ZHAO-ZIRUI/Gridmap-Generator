@@ -68,5 +68,6 @@ class LayeredGridmap(Gridmap):
             return self.layers[0].data
         layer_this = self.layers[0]
         for layer_next in self.layers[1:]:
+            self._logger.debug(f'Overlaying layer: [{layer_this.name}] -> [{layer_next.name}]')
             layer_this = self._overlay_mode(layer_this, layer_next, self._overlay_mode_kargs)
         return layer_this
