@@ -33,6 +33,12 @@ class LayeredGridmap(Gridmap):
     def data(self) -> np.ndarray:
         return self.as_gridmap().data
     
+    @property
+    def item_set(self) -> set:
+        result = set()
+        for layer in self.layers:
+            result.update(layer.item_set())
+    
     def add_layer(self, gridmap: Gridmap):
         # check gridmap size
         if (self.width != gridmap.width) or (self.height != gridmap.height):
