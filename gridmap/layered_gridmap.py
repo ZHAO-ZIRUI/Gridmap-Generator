@@ -1,7 +1,7 @@
 import copy
 from typing import List
 import numpy as np
-from gridmap import Gridmap
+from .gridmap import Gridmap
 
 class LayeredGridmap(Gridmap):
         
