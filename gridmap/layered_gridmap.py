@@ -43,12 +43,16 @@ class LayeredGridmap(Gridmap):
     def add_layer(self, gridmap: Gridmap):
         # check gridmap size
         if (self.width != gridmap.width) or (self.height != gridmap.height):
+            self._logger.error(f'Gridmap size not match: [{self.width} x {self.height}](Origin) vs [{gridmap.width} x {gridmap.height}](New)')
             raise ValueError('Gridmap size not match')
         self._layered_data.append(gridmap)
+        self._logger.info(f'Gridmap layer added: [{gridmap.name}], size {gridmap.width} x {gridmap.height} px, items: {len(gridmap.item_set)}')
         return self
     
     def add_layers(self, gridmaps: List[Gridmap]):
-        self._layered_data.extend(gridmaps)
+        for gridmap in gridmaps:
+            self.add_layer(gridmap)
+        self._logger.info(f'Gridmap layers added: {len(gridmaps)} layers')
         return self
         
     def set_overlay_mode(self, overlay_mode: OverlayMode, **kwargs):

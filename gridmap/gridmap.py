@@ -1,16 +1,19 @@
 import cv2
 import numpy as np
 import copy
+import logging
 from palttet import Palttet
 
 class Gridmap:
     
     def __init__(self, width: int, height: int, name = '') -> None:
+        self._logger = logging.getLogger('rich')
         self._width = width
         self._height = height
         self._name = name
         self._data = np.zeros((width, height), dtype=np.uint8)
         self._visualizer = self._GridmapVisualizer(self)
+        self._logger.debug(f'Gridmap created: [{self.name}], size: {self.width} x {self.height} px')
         
     @property
     def width(self) -> int:
@@ -42,10 +45,12 @@ class Gridmap:
         return set(self.data.flatten())
     
     def replace(self, old_item: int, new_item: int):
+        self._logger.info(f'Gridmap [{self.name}] item replaced: [{old_item}] -> [{new_item}]')
         self._data[self._data == old_item] = new_item
         return self
     
     def set_name(self, name: str):
+        self._logger.info(f'Gridmap [{self.name}] name changed: [{name}]')
         self._name = name
         return self
     
@@ -82,6 +87,7 @@ class Gridmap:
             
         def show_image(self):
             cv2.imshow(self._gridmap.name, self.get_visualizer_data())
+            self._gridmap._logger.info(f'Gridmap [{self._gridmap.name}] visualizer image showed')
             return self
         
         def get_visualizer_data(self):
