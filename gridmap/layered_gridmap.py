@@ -37,7 +37,7 @@ class LayeredGridmap(Gridmap):
     def item_set(self) -> set:
         result = set()
         for layer in self.layers:
-            result.update(layer.item_set())
+            result.update(layer.item_set)
         return result
     
     def add_layer(self, gridmap: Gridmap):
