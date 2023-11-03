@@ -13,7 +13,7 @@ The most easy way to generate or composite gridmap from 1-bit BMP format in the 
 1. Install python requirements
 
     ```
-    pip install -f requirements.txt
+    pip install -r requirements.txt
     ```
 
 2. Edit 1-bit bmp formatted gridmap via Photoshop
